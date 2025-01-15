@@ -3,6 +3,7 @@ import express from 'express';
 import mongoose, { createConnection } from 'mongoose';
 import communicator from './communicator/index.mjs';
 import { createMail } from './utils/email.mjs';
+import cors from 'cors'
 
 dotenv.config();
 
@@ -24,7 +25,7 @@ mongoose.connect(process.env.MONGO_URI_NOTIFICATIONS).then(
 );
 
 app.use(express.json());
-
+app.use(cors())
 app.get('/api/test', async (req, res) =>{
     try {
         const response = await communicator.authTest()
