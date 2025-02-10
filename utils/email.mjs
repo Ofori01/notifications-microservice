@@ -10,16 +10,17 @@ let transporter = nodemailer.createTransport({
       clientId: process.env.OAUTH_CLIENTID,
       clientSecret: process.env.OAUTH_CLIENT_SECRET,
       refreshToken: process.env.OAUTH_REFRESH_TOKEN
-    }
+    },
+    
   });
 
 
-function createMail(recipient, subject, message ) {
+function createMail(recipient, subject, htmlMessage ) {
   let mailOptions = {
     from: 'oforidarkwah7@gmail.com',
     to: recipient,
     subject: subject,
-    text: message
+    html: htmlMessage
   };
   try {
     transporter.sendMail(mailOptions, function(err, data) {

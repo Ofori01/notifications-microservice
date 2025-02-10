@@ -4,6 +4,7 @@ import mongoose, { createConnection } from 'mongoose';
 import communicator from './communicator/index.mjs';
 import { createMail } from './utils/email.mjs';
 import cors from 'cors'
+import { receiveFromQueue } from './communicator/rabbitmq_communicator.mjs';
 
 dotenv.config();
 
@@ -23,6 +24,16 @@ mongoose.connect(process.env.MONGO_URI_NOTIFICATIONS).then(
         console.log("Error connecting notifications service to MongoDB",error)
     }
 );
+
+receiveFromQueue('user_account_creation_queue');
+receiveFromQueue('product_creation_queue')
+receiveFromQueue('product_update_queue')
+receiveFromQueue('order_creation_queue')
+receiveFromQueue('payment_status_queue')
+
+
+
+
 
 app.use(express.json());
 app.use(cors())
