@@ -1,4 +1,4 @@
-import amqp from 'amqplib/callback_api';
+import amqp from 'amqplib/callback_api.js';
 import {createMail}  from '../utils/email.mjs';
 import dotenv from 'dotenv';
 import communicator from '../communicator/index.mjs'
