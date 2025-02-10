@@ -39,7 +39,7 @@ const receiveFromQueue = (queue) => {
                 (msg) => {
                     if (msg !== null) {
                         const keys = JSON.parse(msg.content.toString());
-                        console.log(`📥 Received message from ${queue}:`, update);
+                        console.log(`📥 Received message from ${queue}:`, keys);
 
                         // Determine the type of notification and send
                         sendNotification(keys, queue);
