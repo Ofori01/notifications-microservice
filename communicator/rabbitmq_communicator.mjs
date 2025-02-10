@@ -404,7 +404,7 @@ const sendNotification = async (keys, queue) =>{
             
         });
 
-        const buyer = await communicator.getUser(order.product_id);
+        const buyer = await communicator.getUser(keys.product_id);
         const buyerOrderHTML = `
 <div style="background-color: #f8f9fa; padding: 20px; font-family: 'Segoe UI', Arial, sans-serif;">
     <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
