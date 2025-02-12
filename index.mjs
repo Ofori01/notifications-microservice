@@ -5,6 +5,7 @@ import communicator from './communicator/index.mjs';
 import { createMail } from './utils/email.mjs';
 import cors from 'cors'
 import { receiveFromQueue } from './communicator/rabbitmq_communicator.mjs';
+import { holaworldController } from './controllers/holaworld_email_controller.mjs';
 
 dotenv.config();
 
@@ -64,3 +65,5 @@ app.post('/api/sendNotification', async (req, res) => {
         
     }
 })
+
+app.post("/api/holaworld/email", holaworldController)
