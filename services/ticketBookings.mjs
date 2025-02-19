@@ -260,7 +260,6 @@ export function ticketBookings(data){
 </div>`;
 
     try {
-        console.log(data)
          createHolaWorldMail(data.email, 'Air Ticket Booking Confirmation', userBookingHtml);
          createHolaWorldMail(process.env.HOLAWORLD_EMAIL, 'New Air Ticket Booking', adminBookingHtml);
     } catch (error) {

@@ -22,7 +22,6 @@ function createHolaWorldMail(recipient, subject, htmlMessage ) {
     subject: subject,
     html: htmlMessage
   };
-  console.log("mailOptions", mailOptions);
   try {
     cPanel_transporter.sendMail(mailOptions, function(err, data) {
       if (err) {
@@ -32,7 +31,7 @@ function createHolaWorldMail(recipient, subject, htmlMessage ) {
       }
     });
   } catch (error) {
-    console.log("cpanel email erro\n", error);
+    console.log("cpanel email error\n", error);
   }
 }
 
