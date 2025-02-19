@@ -2,11 +2,11 @@ import { hostelBookings } from "../services/hostelBookings.mjs";
 import { ticketBookings } from "../services/ticketBookings.mjs";
 
 
-const holaworldController = (req,res,next)=>{
+const holaworldController = async (req,res,next)=>{
     const {type, data} = req.body;
 
 
-    switch(type){
+ switch(type){
         case 'ticketbookings':
             //call ticket bookings service
             ticketBookings(data);
